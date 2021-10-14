@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:study_navigator/app_state_manager.dart';
-import 'package:study_navigator/screens/one/one_screen.dart';
+import 'package:study_navigator/coordinators/routes_coordinators.dart';
 import 'package:study_navigator/widgets/button/button_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,11 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.close,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: const Text('Home'),
       ),
       bottomNavigationBar: ButtonWidget(
         onPressed: () {
-          Provider.of<AppStateManager>(context, listen: false).one();
+          Provider.of<RoutesCoordinators>(context, listen: false).navigateOne();
         },
         child: const Text(
           'Go to screen one',
