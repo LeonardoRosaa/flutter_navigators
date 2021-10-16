@@ -1,3 +1,5 @@
+## Navigator resume
+
 Basically, navigator works as `stack`. When `push` is called, the widget is placed on top of `stack`. Like this:
 
 <p align="center"><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d067defd-dbbd-4a42-b661-0fe8eaf136fe/1_v77nG0BRIWrOghj8fCq_EA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211016%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211016T153612Z&X-Amz-Expires=86400&X-Amz-Signature=adad3c46080c8bcd748ac21428e581919edaff53a29a0a9f750770efae75cf33&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%221_v77nG0BRIWrOghj8fCq_EA.png%22" /></p>
