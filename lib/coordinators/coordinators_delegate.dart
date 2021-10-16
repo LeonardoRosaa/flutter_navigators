@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:study_navigator/coordinators/app_routes.dart';
-import 'package:study_navigator/coordinators/routes_coordinators.dart';
+import 'package:study_navigator/coordinators/routes.dart';
+
+import 'coordinators.dart';
 
 
-class CoordinatorsDelegate extends RouterDelegate<AppRoutePath>
+class CoordinatorsDelegate extends RouterDelegate<AppPath>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
 
   CoordinatorsDelegate({
-    required this.routesCoordinators,
+    required this.coordinators,
   }) : navigatorKey = GlobalKey<NavigatorState>();
 
-  final RoutesCoordinators routesCoordinators;
+  final Coordinators coordinators;
 
   @override
   Widget build(BuildContext context) {
     return Navigator(
       key: navigatorKey,
-      pages: routesCoordinators.pages,
+      pages: coordinators.pages,
       onPopPage: _handlePopPage,
     );
   }
@@ -25,20 +26,20 @@ class CoordinatorsDelegate extends RouterDelegate<AppRoutePath>
   GlobalKey<NavigatorState>? navigatorKey;
 
   @override
-  AppRoutePath? get currentConfiguration => routesCoordinators.currentConfiguration;
+  AppPath? get currentConfiguration => coordinators.currentConfiguration;
 
   @override
-  Future<void> setNewRoutePath(AppRoutePath configuration) async => routesCoordinators.setNewRoutePath(configuration);
+  Future<void> setNewRoutePath(AppPath configuration) async => coordinators.setNewRoutePath(configuration);
 
   bool _handlePopPage(Route<dynamic> route, result) {
-    if (!routesCoordinators.didPop(route, result)) {
+    if (!coordinators.didPop(route, result)) {
       return false;
     }
 
     final routePage = route.settings;
 
     if (routePage is Page) {
-      routesCoordinators.popPage(routePage);
+      coordinators.popPage(routePage);
     }
 
     return true;

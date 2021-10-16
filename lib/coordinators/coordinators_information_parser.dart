@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:study_navigator/coordinators/app_routes.dart';
+import 'package:study_navigator/coordinators/routes.dart';
 
-class CoordinatorsInformationParser extends RouteInformationParser<AppRoutePath> {
+class CoordinatorsInformationParser extends RouteInformationParser<AppPath> {
   @override
-  Future<AppRoutePath> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<AppPath> parseRouteInformation(RouteInformation routeInformation) async {
     final location = routeInformation.location;
 
     if (location != null) {
@@ -14,6 +14,6 @@ class CoordinatorsInformationParser extends RouteInformationParser<AppRoutePath>
   }
 
   @override
-  RouteInformation? restoreRouteInformation(AppRoutePath configuration) => RouteInformation(location: configuration.formattedPath);
+  RouteInformation? restoreRouteInformation(AppPath configuration) => RouteInformation(location: configuration.formattedPath);
   
 }

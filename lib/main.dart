@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:study_navigator/coordinators/coordinators_delegate.dart';
 import 'package:study_navigator/coordinators/coordinators_information_parser.dart';
-import 'package:study_navigator/coordinators/routes_coordinators.dart';
+import 'package:study_navigator/coordinators/coordinators.dart';
+import 'package:study_navigator/repositories/games_repository.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<RoutesCoordinators>(
-            create: (_) => RoutesCoordinators()),
+        Provider<GamesRepository>(
+          create: (_) => GamesRepository(),
+        ),
+        ChangeNotifierProvider<Coordinators>(
+          create: (_) => Coordinators(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -28,14 +33,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final _coordinatorsDelegate = CoordinatorsDelegate(
-        routesCoordinators: Provider.of<RoutesCoordinators>(context));
+    final coordinatorsDelegate = CoordinatorsDelegate(
+      coordinators: Provider.of<Coordinators>(context, listen: true),
+    );
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routerDelegate: _coordinatorsDelegate,
+      routerDelegate: coordinatorsDelegate,
       routeInformationParser: coordinatorsParse,
     );
   }

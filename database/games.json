@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Marvel’s Spider-Man: Miles Morales",
+        "price": "US$ 49,99"
+    },
+    {
+        "id": 2,
+        "name": "Marvel's Spider-Man: Game of The Year Edition",
+        "price": "US$ 29,49"
+    },
+    {
+        "id": 3,
+        "name": "God of War Hits",
+        "price": "US$ 16,45"
+    },
+    {
+        "id": 4,
+        "name": "Horizon Zero Dawn",
+        "price": "US$ 16,00"
+    },
+    {
+        "id": 5,
+        "name": "Uncharted 4: A Thief's End",
+        "price": "US$ 21,13"
+    },
+    {
+        "id": 6,
+        "name": "Ghost of Tsushima Director's Cut",
+        "price": "US$ 58,99"
+    },
+    {
+        "id": 7,
+        "name": "Detroit Become Human",
+        "price": "US$ 20,76"
+    },
+    {
+        "id": 8,
+        "name": "Mafia 3",
+        "price": "US$ 22,44"
+    },
+    {
+        "id": 9,
+        "name": "The Witcher 3",
+        "price": "US$ 22,99"
+    }
+]
